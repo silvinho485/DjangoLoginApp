@@ -6,5 +6,11 @@
   </head>
   <body>
     <h1>WELCOME TO INDEX PAGE!</h1>
+    {% if user.is_authenticated %}
+    <h2>{{ user.username }} is logged in!</h2>
+    <a href="{%url 'logout'%}">DESLOGAR</a>
+    {% else %}
+    <h2>You are not logged in!</h2>
+    {% endif  %}
   </body>
 </html>

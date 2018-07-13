@@ -5,22 +5,21 @@
     <title>Login</title>
   </head>
   <body>
-    {% if form.errors%}
+    {% if form.errors %}
     <p>There's something wrong with what you have entered.</p>
     {% endif %}
 
     {% if next %}
-    <p>You can't acces that page</p>
+    <p>You can't access that page</p>
     {% endif %}
-    <form method="POST" action="{% url 'login' %}">
+    <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
       
-      <p>{{ form.username }}</p>
-      <p>{{ form.password }}</p>
-
-      <p><input type="submit" value="login"/></p>
-      <input type="hidden" name="next" value="{{next}}"/>
+      {{ form.username }}
+      {{ form.password }}
+      
+      <input type="submit" value="login"/>
+      <input type="hidden" name="next" value="{{ next }}"/>
     </form>
-    
   </body>
 </html>
