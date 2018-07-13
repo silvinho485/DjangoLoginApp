@@ -6,15 +6,16 @@
   </head>
   <body>
     <h1>REGISTRATION PAGE!</h1>
-    <form method="POST" action="{% url 'register' %}">
+    <form method="POST" enctype="multipart/form-data" action="{% url 'register' %}">
       {% csrf_token %}
 
       {% if form.errors%}
       <p>There is something worng with the form!</p>
       {% endif %}
 
-      {{ form }}
-
+      {{ user_form.as_p }}
+      {{ profile_form.as_p}}
+      
       <input type="submit" value="Register"/>
       
     </form>
