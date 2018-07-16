@@ -7,6 +7,8 @@
   <body>
     <h1>WELCOME TO INDEX PAGE!</h1>
     {% if user.is_authenticated %}
+
+    <img src="{{ user.profile.pic.url }}" style="width: 10%;"/>
     <h2>{{ user.username }} is logged in!</h2>
     <a href="{%url 'logout'%}">DESLOGAR</a>
     {% else %}
